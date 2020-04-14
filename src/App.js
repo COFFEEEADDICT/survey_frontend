@@ -1,13 +1,20 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import HomepageLayout from './components/HomepageLayout';
 import LoginForm from './components/acc/login';
 
 function App() {
+
+  // constructor(){
+  //   super()
+  //   this.state.{
+  //     user:null,
+  //     password: null}
+  // }
+  
   return (
     <div className="App">
-       test
+       < HomepageLayout />
        < LoginForm />
     </div>
   );
