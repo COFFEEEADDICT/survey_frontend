@@ -1,15 +1,22 @@
 import React from 'react'
 import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react'
 
-const LoginForm = () => (
+
+// function handleClick() {
+ 
+//   console.log('The link was clicked.');
+// }
+
+
+const Log_in = ({handleClick}) => (
   <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
     <Grid.Column style={{ maxWidth: 450 }}>
-      <Header as='h2' color='purple' textAlign='center'>
+      <Header as='h2'  color='blue' textAlign='center'>
          Log-in to your account
       </Header>
       <Form size='large'>
         <Segment stacked>
-          <Form.Input fluid icon='user' iconPosition='left' placeholder='E-mail address' />
+          <Form.Input fluid icon='user' iconPosition='left' placeholder='Username' />
           <Form.Input
             fluid
             icon='lock'
@@ -17,17 +24,17 @@ const LoginForm = () => (
             placeholder='Password'
             type='password'
           />
-
-          <Button color='purple' fluid size='large'>
+ 
+          <Button color='blue' fluid size='large'>
             Login
           </Button>
         </Segment>
       </Form>
-      <Message >
-        <a href='#'>Sign Up</a>
+      <Message   >
+        <a href='#' onClick={() => handleClick()} >Sign Up</a>
       </Message>
     </Grid.Column>
   </Grid>
 )
 
-export default LoginForm
+export default Log_in
