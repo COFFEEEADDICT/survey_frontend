@@ -1,23 +1,18 @@
 import React from 'react';
-import './App.css';
-import HomepageLayout from './components/HomepageLayout';
-import LoginForm from './components/acc/login';
+import NavBar from './components/NavBar';
+import MySurveys from './components/MySurveys';
+import NewSurveyForm from './components/NewSurveyForm';
+import NewQuestionsForm from './NewQuestionsForm';
 
 function App() {
-
-  // constructor(){
-  //   super()
-  //   this.state.{
-  //     user:null,
-  //     password: null}
-  // }
-  
-  return (
-    <div className="App">
-       < HomepageLayout />
-       < LoginForm />
-    </div>
-  );
+	return (
+		<div className="App">
+			<NavBar />
+			{/* <MySurveys /> */}
+			<NewSurveyForm />
+			<NewQuestionsForm />
+		</div>
+	);
 }
 
 export default App;
