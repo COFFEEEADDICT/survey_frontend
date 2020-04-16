@@ -22,9 +22,7 @@ class Portal extends React.Component {
   render() {
     return (
       <Fragment>
-          
         {this.state.login ? <Log_in handleClick={this.handleClick} /> : <Signup handleSubmit={this.handleSubmit}/>}
-      
       </Fragment>
     )
   }
