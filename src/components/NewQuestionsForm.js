@@ -52,3 +52,45 @@ export default class NewQuestionsForm extends Component {
 		);
 	}
 }
+
+class ExampleFullForm {
+	state = {
+		title: '',
+		description: '',
+		questions: [ 'Whats your name', 'Age', 'Hous' ]
+	};
+
+	renderQuestions = () => {
+		return this.state.questions.map((question, index) => (
+			<FormToRender key={index} question={question} indexId={index} />
+		));
+	};
+
+	changeQuestion = (event, indexId) => {
+		const newQuestionsArray = [ ...this.state.questions ];
+		newQuestionsArray[indexId] = event.target.value;
+
+		this.setState({ questions: newQuestionsArray });
+	};
+
+	addQuestion = () => {
+		this.setState({
+			questions: [ ...this.state.questions, '' ]
+		});
+	};
+
+	render() {
+		return (
+			<form>
+				{this.state.title}
+				{this.state.description}
+				{this.renderQuestions()}
+				<input type="submit" />
+			</form>
+		);
+	}
+}
+
+const SingleQuestionInput = (props) => {
+	return <input value={props.question} onChange={(e) => props.changeQuestion(e, props.indexId)} />;
+};

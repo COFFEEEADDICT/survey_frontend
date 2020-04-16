@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { Form, Button, Container } from 'semantic-ui-react';
+import FormToRender from './FormToRender';
 export default class NewSurveyForm extends Component {
 	state = {
 		title: '',
-		description: ''
+		description: '',
+		questions: [ '' ]
 	};
 	handleChange = (e) => {
 		this.setState({
@@ -30,6 +32,36 @@ export default class NewSurveyForm extends Component {
 			.then((r) => r.json())
 			.then((data) => console.log(data));
 	};
+
+	addQuestion = () => {
+		this.setState({
+			questions: [ ...this.state.questions, '' ]
+		});
+	};
+
+	removeQuestion = (question) => {
+		this.setState({
+			questions: this.state.questions.filter((q) => q !== question)
+		});
+		// this.setState({
+		// 	// questions: [ ...this.state.questions.slice(this.state.questions, [ ...(this.state.questions - 1) ]) ]
+		// 	questions: this.state.questions.splice(
+		// 		[ ...this.state.questions.length ],
+		// 		[ ...(this.state.questions.length - 1) ]
+		// 	)
+		// });
+	};
+	renderQuestions = () => {
+		return this.state.questions.map((question, index) => (
+			<FormToRender removeQuestion={this.removeQuestion} key={index} question={question} indexId={index} />
+		));
+	};
+	changeQuestion = (event, indexId) => {
+		const newQuestionsArray = [ ...this.state.questions ];
+		newQuestionsArray[indexId] = event.target.value;
+
+		this.setState({ questions: newQuestionsArray });
+	};
 	render() {
 		return (
 			<Container text="true">
@@ -42,6 +74,9 @@ export default class NewSurveyForm extends Component {
 						<label>Survey Description</label>
 						<input placeholder="Survey Description" name="description" />
 					</Form.Field>
+					{this.renderQuestions()}
+					<Button onClick={this.addQuestion}>Add Question</Button>
+					<Button onClick={this.removeQuestion}>Remove Question</Button>
 					<Button onClick={this.handleSubmit} type="submit">
 						Submit
 					</Button>

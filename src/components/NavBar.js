@@ -10,19 +10,19 @@ class NavBar extends React.Component {
 					<Link to="/">Home</Link>
 				</Menu.Item>
 				<Menu.Item>
-					<Link to="">My Surveys</Link>
+					<Link to="/my_surveys">My Surveys</Link>
 				</Menu.Item>
 				<Menu.Item>
 					<Link to="">My Responses</Link>
 				</Menu.Item>
 				<Menu.Menu position="right">
 					<Menu.Item>
-						<Link to="">Create Survey</Link>
+						<Link to="create_survey">Create Survey</Link>
 					</Menu.Item>
 				</Menu.Menu>
 				<Menu.Menu>
 					<Menu.Item>
-						<Link to="">Sign In</Link>
+						<Link to="log_in">Sign In</Link>
 					</Menu.Item>
 				</Menu.Menu>
 			</Menu>

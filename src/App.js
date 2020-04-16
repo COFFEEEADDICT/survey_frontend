@@ -1,10 +1,11 @@
 import React from 'react';
 import './App.css';
-import Portal from './components/auth/Portal';
 import { Route } from 'react-router-dom';
 import API from './API.js';
-import HomepageLayout from './components/HomepageLayout';
-
+import NewSurveyForm from './components/NewSurveyForm';
+import NavBar from './components/NavBar';
+import MySurveys from './components/MySurveys';
+import LoginForm from './components/auth/Log_in';
 class App extends React.Component {
 	constructor() {
 		super();
@@ -35,18 +36,27 @@ class App extends React.Component {
 
 	render() {
 		return (
-			<div className="App">
-				{this.state.username ? (
-					<HomepageLayout />
-				) : (
-					<Portal username={this.state.username} signOut={this.signOut} signIn={this.signIn} />
-				)}
+			<div>
+				<NavBar />
+				<Route exact path="/my_surveys" component={MySurveys} />
+				<Route exact path="/create_survey" component={NewSurveyForm} />
+				<Route exact path="/log_in" component={LoginForm} />
+
+				{/* <Route exact path="/discover" component={HomePageCardsContainer} /> */}
+				{/* <Route exact path="/restaurants/:id" component={RestaurantShow} /> */}
 			</div>
 		);
 	}
 }
 export default App;
 
+{
+	/* {this.state.username ? (
+	<HomepageLayout />
+) : (
+	<Portal username={this.state.username} signOut={this.signOut} signIn={this.signIn} />
+)} */
+}
 // <App>
 //   {
 //     loggedInCondition
