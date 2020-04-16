@@ -18,7 +18,7 @@ class ShowSurverys extends React.Component {
 
     renderEach(props){
         const theProps =  props.bots.bots	 
-        return theProps.map(s => <SurveyCard bot={s} key={s.id} /> )
+        return theProps.map(s => <SurveyCard card={s} cardID={s.id} /> )
     }   
 
     Fetch(){
