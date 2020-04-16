@@ -2,7 +2,7 @@ import React from 'react';
 import NavBar from './components/NavBar';
 import MySurveys from './components/MySurveys';
 import NewSurveyForm from './components/NewSurveyForm';
-import NewQuestionsForm from './NewQuestionsForm';
+import NewQuestionsForm from './components/NewQuestionsForm';
 
 function App() {
 	return (
